@@ -46,6 +46,9 @@ for (let i= 0; i < multipleProducts.length; i++) {
 function removeProduct(event) {
   const target = event.currentTarget;
   console.log('The target in remove is:', target);
+  
+  target.parentNode.parentNode.remove()
+  calculateAll()
   //... your code goes here
 }
 
@@ -59,5 +62,9 @@ window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
 
+  const removeButton = document.getElementsByClassName('btn-remove');
+  for(let i=0; i<removeButton.length; i++) {
+    removeButton[i].addEventListener('click', removeProduct);
+  }
   //... your code goes here
 });
